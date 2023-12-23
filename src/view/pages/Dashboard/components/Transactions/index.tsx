@@ -13,12 +13,21 @@ import { cn } from "../../../../../app/utils/cn";
 
 import { useTransactionsController } from "./useTransactionsController";
 
-import emptyStateIllustration from "../../../../../assets/empty-state.svg";
 import { TransactionTypeDropdown } from "./TransactionTypeDropdown";
 
+import emptyStateIllustration from "../../../../../assets/empty-state.svg";
+import { FiltersModal } from "./FiltersModal";
+
 export function Transactions() {
-  const { areValuesVisible, isInitialLoading, isLoading, transactions } =
-    useTransactionsController();
+  const {
+    areValuesVisible,
+    isInitialLoading,
+    isLoading,
+    transactions,
+    isFiltersModalOpen,
+    handleOpenFiltersModal,
+    handleCloseFiltersModal,
+  } = useTransactionsController();
 
   const hasTransactions = transactions.length > 0;
 
@@ -32,11 +41,16 @@ export function Transactions() {
 
       {!isInitialLoading && (
         <>
+          <FiltersModal
+            open={isFiltersModalOpen}
+            onClose={handleCloseFiltersModal}
+          />
+
           <header>
             <div className="flex items-center justify-between">
               <TransactionTypeDropdown />
 
-              <button>
+              <button onClick={handleOpenFiltersModal}>
                 <FilterIcon />
               </button>
             </div>
