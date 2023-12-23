@@ -22,7 +22,11 @@ export function App() {
         <Router />
         <Toaster />
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} position="right" />
+      <ReactQueryDevtools
+        initialIsOpen={false}
+        position="right"
+        buttonPosition="bottom-left"
+      />
     </QueryClientProvider>
   );
 }
