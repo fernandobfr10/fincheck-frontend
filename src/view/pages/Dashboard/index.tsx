@@ -3,6 +3,7 @@ import { UserMenu } from "../../components/UserMenu";
 import { Accounts } from "./components/Accounts";
 import { Transactions } from "./components/Transactions";
 import { Fab } from "./components/Fab";
+import { Modal } from "../../components/Modal";
 
 import { DashboardProvider } from "./components/DashboardContext";
 
@@ -25,6 +26,9 @@ export function Dashboard() {
         </main>
 
         <Fab />
+        <Modal open title="Receitas" rightAction="Trash">
+          Conteúdo
+        </Modal>
       </div>
     </DashboardProvider>
   );
