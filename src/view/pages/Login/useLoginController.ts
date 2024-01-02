@@ -13,10 +13,7 @@ const loginSchema = z.object({
     .string()
     .min(1, "E-mail é obrigatório.")
     .email("Informe um e-mail válido."),
-  password: z
-    .string()
-    .min(1, "Senha é obrigatória.")
-    .min(8, "Senha deve conter pelo menos 8 dígitos."),
+  password: z.string().min(8, "Senha deve conter pelo menos 8 dígitos."),
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
